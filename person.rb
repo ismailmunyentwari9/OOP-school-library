@@ -27,8 +27,8 @@ class Person < Nameable
     @name
   end
 
-  def rent_person(rental)
-    rental= Rental(date, self, book)
+  def rent_person
+    rental = Rental(date, self, book)
     rentals << rental
   end
 end
