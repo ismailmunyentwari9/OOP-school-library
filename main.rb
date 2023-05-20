@@ -51,7 +51,6 @@ def process_create_rental(app, books, people, rentals)
 end
 
 def process_list_rentals(app, rentals)
-  puts 'Enter the person id:'
   app.list_rentals(rentals)
 end
 
