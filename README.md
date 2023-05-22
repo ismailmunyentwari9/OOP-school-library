@@ -54,6 +54,12 @@ Clone this repository to your desired folder using the following command; git cl
 - GitHub: [@Ismail-Munyentwari](https://github.com/ismailmunyentwari9)
 - LinkedIn: [@Ismail-Munyentwari](https://www.linkedin.com/in/munyentwari-ismail-754718191/)
 
+👤 **CarenSiya**
+
+- GitHub: [@carensiya ](https://github.com/Caren-Koroeny)
+- Twitter: [@carensiya](https://twitter.com/home)
+- LinkedIn: [@carensiya](www.linkedin.com/in/caren-siya-a89712180)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
