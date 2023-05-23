@@ -15,16 +15,7 @@ class Logics
     puts ''
   end
 
-  def create_person(app, people)
-    puts 'Do you want to create a student (1) or a teacher (2)? [Input Number (1) or (2)]:'
-    type = gets.chomp.to_i
-    case type
-    when 1
-      app.create_student(people)
-    when 2
-      app.create_teacher(people)
-    else
-      puts 'Invalid option'
-    end
+  def create_person(app)
+    app.create_person
   end
 end

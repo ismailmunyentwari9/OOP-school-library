@@ -6,55 +6,31 @@ require_relative 'app'
 require_relative 'logics'
 
 class Main < Logics
-  def process_list_books(app, books)
-    app.list_books(books)
-  end
-
-  def process_list_people(app, people)
-    app.list_people(people)
-  end
-
-  def process_add_book(app, books)
-    app.add_book(books)
-  end
-
-  def process_create_rental(app, books, people, rentals)
-    app.create_rental(books, people, rentals)
-  end
-
-  def process_list_rentals(app, rentals)
-    app.list_rentals(rentals)
-  end
-
   def main
-    people = []
-    books = []
-    rentals = []
     app = App.new
 
     loop do
       print_menu
       option = gets.chomp.to_i
 
-      process(option, app, books, people, rentals)
+      process(option, app)
     end
   end
 
-  def process(option,
-              app, books, people, rentals)
+  def process(option, app)
     case option
     when 1
-      process_list_books(app, books)
+      app.list_books
     when 2
-      process_list_people(app, people)
+      app.list_people
     when 3
-      create_person(app, people)
+      app.create_person
     when 4
-      process_add_book(app, books)
+      app.add_book
     when 5
-      process_create_rental(app, books, people, rentals)
+      app.create_rental
     when 6
-      process_list_rentals(app, rentals)
+      app.list_rentals
     when 7
       exit
     else
@@ -62,5 +38,6 @@ class Main < Logics
     end
   end
 end
+
 main_entry = Main.new
 main_entry.main
