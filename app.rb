@@ -4,7 +4,15 @@ require_relative 'student'
 require_relative 'teacher'
 
 class App
-  def add_book(books)
+  attr_accessor :people, :books, :rentals
+
+  def initialize
+    @people = []
+    @books = []
+    @rentals = []
+  end
+
+  def add_book
     puts 'Enter the title of the book:'
     title = gets.chomp
     puts 'Enter the author of the book:'
@@ -14,12 +22,12 @@ class App
     puts 'Book added successfully!'
   end
 
-  def list_books(books)
+  def list_books
     store = books.map { |items| "Title:#{items.title} || Author:#{items.author}" }
     puts store
   end
 
-  def create_student(people)
+  def create_student
     puts 'Age:'
     age = gets.chomp.to_i
     puts 'Name:'
@@ -33,7 +41,7 @@ class App
     puts 'People added successfully!'
   end
 
-  def create_teacher(people)
+  def create_teacher
     puts 'Age:'
     age = gets.chomp.to_i
     puts 'Name:'
@@ -45,7 +53,20 @@ class App
     puts 'People added successfully!'
   end
 
-  def list_people(people)
+  def create_person
+    puts 'Do you want to create a student (1) or a teacher (2)? [Input Number (1) or (2)]:'
+    type = gets.chomp.to_i
+    case type
+    when 1
+      create_student
+    when 2
+      create_teacher
+    else
+      puts 'Invalid option'
+    end
+  end
+
+  def list_people
     people.each do |person|
       if person.is_a?(Student)
         puts "[Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
@@ -55,7 +76,7 @@ class App
     end
   end
 
-  def create_rental(books, people, rentals)
+  def create_rental
     puts 'Select a book from the following list by number:'
     books_with_indexes = books.map.with_index do |items, index|
       "#{index}) Title: #{items.title} || Author: #{items.author}"
@@ -84,7 +105,7 @@ class App
     puts 'Rental created successfully!'
   end
 
-  def list_rentals(rentals)
+  def list_rentals
     puts 'Enter the ID of a person:'
     id = gets.chomp.to_i
 
