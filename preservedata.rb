@@ -17,26 +17,26 @@ class PreserveData
   private
 
   def save_books
-    File.open('books.json', 'a') do |file|
+    File.open('books.json', 'w') do |file|
       file.write(JSON.generate(books))
     end
   end
 
   def save_people
-    File.open('people.json', 'a') do |file|
+    File.open('people.json', 'w') do |file|
       file.write(JSON.generate(people))
     end
   end
 
   def save_rentals
-    File.open('rentals.json', 'a') do |file|
+    File.open('rentals.json', 'w') do |file|
       file.write(JSON.generate(rentals))
     end
   end
 
   def load_books
     if File.exist?('books.json')
-      if File.empty?('books.json')
+      if File.zero?('books.json')
         puts 'Books data file is empty.'
         @books = []
       else
@@ -56,7 +56,7 @@ class PreserveData
 
   def load_people
     if File.exist?('people.json')
-      if File.empty?('people.json')
+      if File.zero?('people.json')
         puts 'People data file is empty.'
         @people = []
       else
@@ -82,7 +82,7 @@ class PreserveData
 
   def load_rentals
     if File.exist?('rentals.json')
-      if File.empty?('rentals.json')
+      if File.zero?('rentals.json')
         puts 'Rental data file is empty.'
         @rentals = []
       else
@@ -90,7 +90,6 @@ class PreserveData
           rentals_data = JSON.parse(File.read('rentals.json'))
           @rentals = rentals_data.map do |data|
             book = @books.find { |book| book.title == data['title'] }
-            person = @people.find { |person| person.id == data['id'] }
             date = data['date']
             Rental.new(date, book, person)
           end

@@ -8,8 +8,6 @@ require_relative 'logics'
 class Main < Logics
   def main
     app = App.new
-    app.load_data
-
     begin
       loop do
         print_menu
