@@ -46,7 +46,17 @@ class PreserveData
   end
 
   def save_rentals
-    File.write('rentals.json', JSON.generate(rentals))
+    rentals_data = rentals.map do |rental|
+      {
+        'date' => rental.date,
+        'book_title' => rental.book.title,
+        'book_author' => rental.book.author,
+        'person_name' => rental.person.name,
+        'person_id' => rental.person.id
+      }
+    end
+
+    File.write('rentals.json', JSON.generate(rentals_data))
   end
 
   def load_books
@@ -103,10 +113,16 @@ class PreserveData
       else
         begin
           rentals_data = JSON.parse(File.read('rentals.json'))
-          @rentals = rentals_data.map do |data|
-            book = @books.find { |book_items| book_items.title == data['title'] }
+          @rentals = []
+
+          rentals_data.each do |data|
+            book = @books.find { |book_item| book_item.title == data['book_title'] }
+            person = @people.find { |person_item| person_item.name == data['person_name'] }
             date = data['date']
-            Rental.new(date, book, person)
+
+            rental = Rental.new(date, book, person)
+            @rentals << rental
+            person.rentals.push(rental)
           end
         rescue JSON::ParserError => e
           puts "Error parsing 'rentals.json' file: #{e.message}"
