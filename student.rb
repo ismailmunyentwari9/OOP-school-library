@@ -13,4 +13,8 @@ class Student < Person
   def play_hooky
     '¯\(ツ)/¯'
   end
+
+  def inspect
+    to_s
+  end
 end

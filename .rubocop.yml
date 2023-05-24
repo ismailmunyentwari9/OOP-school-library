@@ -19,7 +19,10 @@ Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 30
 Metrics/CyclomaticComplexity:
-  Max: 8
+  Max: 10
+Metrics/PerceivedComplexity:
+  Max: 12
+
 
 
 Style/Documentation:

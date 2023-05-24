@@ -8,12 +8,14 @@ require_relative 'logics'
 class Main < Logics
   def main
     app = App.new
-
-    loop do
-      print_menu
-      option = gets.chomp.to_i
-
-      process(option, app)
+    begin
+      loop do
+        print_menu
+        option = gets.chomp.to_i
+        process(option, app)
+      end
+    ensure
+      app.save_data
     end
   end
 
