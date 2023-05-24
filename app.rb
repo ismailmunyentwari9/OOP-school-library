@@ -1,15 +1,19 @@
+require 'json'
 require_relative 'book'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
+require_relative 'preservedata'
 
-class App
+class App < PreserveData
   attr_accessor :people, :books, :rentals
 
   def initialize
+    super
     @people = []
     @books = []
     @rentals = []
+    load_data
   end
 
   def add_book
