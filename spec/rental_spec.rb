@@ -1,5 +1,5 @@
-require_relative '../rental'
-require_relative '../persons'
+require_relative './rental'
+require_relative './persons'
 
 describe Rental do
   context 'with an input of names and ages' do
