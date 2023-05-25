@@ -1,19 +1,19 @@
-require_relative './book'
-require_relative './persons'
+require_relative './teacher'
+require_relative './person'
 
-describe Book do
-  context 'inputing a book' do
-    book1 = Book.new('Caren Siya', 'The Whale Rider')
-    book2 = Book.new('Isma', 'Promise')
+describe Teacher do
+  context 'with a list of names and ages' do
+    teacher = Teacher.new(56, 'Uche', 'specialization')
 
-    it 'expects book1.title to be Caren Siya' do
-      expect(book1.title).to eql 'Caren Siya'
+    it 'expects age of student to be 56' do
+      expect(teacher.age).to eql 56
     end
-    it 'confirms if Book title is Isma' do
-      expect(book2.title).to eql 'Isma'
+    it 'expects name of student to be Uche' do
+      expect(teacher.name).to eq 'Uche'
     end
-    it 'confirms if Book author is Promise' do
-      expect(book2.author).to eql 'Promise'
+
+    it 'expect the teacher to use services' do
+      expect(teacher.can_use_services?).to eq true
     end
   end
 end
