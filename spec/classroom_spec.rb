@@ -10,7 +10,7 @@ describe Classroom do
     end
 
     it 'expect the classroom to have students' do
-      student = Student.new(23, 'Maxwell', true)
+      student = Student.new(45, 'Chebet', true)
       classroom.adding_students(student)
       expect(classroom.students).to eq [student]
     end
