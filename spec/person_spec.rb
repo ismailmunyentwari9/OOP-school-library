@@ -27,15 +27,15 @@ describe Person do
       expect(person.of_age?).to eq true
     end
     it 'returns false if the person is not of age' do
-      person = Person.new(25, 'Grace', parent_permission: false)
+      person = Person.new(15, 'Grace', parent_permission: false)
       expect(person.of_age?).to eq false
     end
     it 'returns true if the person has parents permission' do
-      person = Person.new(25, 'Grace', parent_permission: true)
+      person = Person.new(15, 'Grace', parent_permission: true)
       expect(person.can_use_services?).to eq true
     end
     it 'returns false if the person does not have parents permission' do
-      person = Person.new(25, 'Grace', parent_permission: false)
+      person = Person.new(15, 'Grace', parent_permission: false)
       expect(person.can_use_services?).to eq false
     end
   end
