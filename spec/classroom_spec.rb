@@ -1,5 +1,5 @@
-require_relative '../classroom'
-require_relative '../students'
+require_relative './classroom'
+require_relative './students'
 
 describe Classroom do
   context 'when an instance created and parameter passed' do
@@ -10,7 +10,7 @@ describe Classroom do
     end
 
     it 'expect the classroom to have students' do
-      student = Student.new(45, 'Chebet', true)
+      student = Student.new(25, 'Grace', true)
       classroom.adding_students(student)
       expect(classroom.students).to eq [student]
     end
