@@ -18,7 +18,7 @@ RSpec.describe Book do
   end
 
   describe '#rent_book' do
-    it "creates a new Rental object and adds it to the rentals array" do
+    it 'creates a new Rental object and adds it to the rentals array' do
       expect(Rental).to receive(:new).with(date, book, person) do
         instance_double(Rental, date: date, book: book, person: person)
       end
@@ -28,7 +28,7 @@ RSpec.describe Book do
       expect(book.rentals.length).to eq(1)
     end
 
-    it "does not add a rental to the rentals array if it is already present" do
+    it 'does not add a rental to the rentals array if it is already present' do
       rental = instance_double(Rental, date: date, book: book, person: person)
       allow(Rental).to receive(:new).and_return(rental)
 
