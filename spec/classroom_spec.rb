@@ -1,10 +1,9 @@
 require_relative '../classroom'
-
 RSpec.describe Classroom do
   let(:classroom_label) { 'Math Class' }
   let(:student) { Student.new('John Doe') }
 
-  subject(:classroom) { described_class.new(classroom_label) }
+  subject(:classroom) { Classroom.new(classroom_label) }
   let(:custom_students) { [] }
 
   before do
